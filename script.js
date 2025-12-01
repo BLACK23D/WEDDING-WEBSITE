@@ -9,6 +9,13 @@ const products = {
         price: 35,
         priceKES: 4500,
         description: 'Premium tiger-striped shirt'
+    },
+    sundress: {
+        id: 'sundress',
+        name: 'Elegant Sundress for Ladies',
+        price: 45,
+        priceKES: 5850,
+        description: 'Beautiful elegant sundress'
     }
 };
 
