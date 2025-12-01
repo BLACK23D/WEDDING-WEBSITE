@@ -317,6 +317,27 @@ function handleCheckoutSubmit(e) {
         dateTime: dateTime
     };
 
+    // Send order data to Google Sheets via Apps Script
+    // NOTE: Replace YOUR_GOOGLE_APPS_SCRIPT_DEPLOYMENT_URL with your actual deployment URL
+    const googleAppsScriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_DEPLOYMENT_URL';
+    
+    if (googleAppsScriptURL && googleAppsScriptURL !== 'YOUR_GOOGLE_APPS_SCRIPT_DEPLOYMENT_URL') {
+        fetch(googleAppsScriptURL, {
+            method: 'POST',
+            body: JSON.stringify(displayData)
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log('✓ Order saved to Google Sheets:', result);
+        })
+        .catch(error => {
+            console.warn('Could not save to Google Sheets (integration not yet configured):', error);
+            // Continue with local processing even if Google Sheets fails
+        });
+    } else {
+        console.log('ℹ Google Sheets integration not yet configured. Order data ready for submission.');
+    }
+
     // Show success and complete order
     showSuccessModal(displayData);
     resetCheckout();
