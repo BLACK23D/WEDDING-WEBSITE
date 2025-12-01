@@ -319,7 +319,7 @@ function handleCheckoutSubmit(e) {
 
     // Send order data to Google Sheets via Apps Script
     // NOTE: Replace YOUR_GOOGLE_APPS_SCRIPT_DEPLOYMENT_URL with your actual deployment URL
-    const googleAppsScriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_DEPLOYMENT_URL';
+    const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbxyJwd_fVZ7nu6qAxf4oKmdP_7CJek_g6EN_v30FpfKiIzkElB1_bhlImuheuOQp6BJ/exec';
     
     if (googleAppsScriptURL && googleAppsScriptURL !== 'YOUR_GOOGLE_APPS_SCRIPT_DEPLOYMENT_URL') {
         fetch(googleAppsScriptURL, {
